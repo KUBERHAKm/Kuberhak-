@@ -1,31 +1,491 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEVA OFFICIAL HUB</title>
-</head>
-<body>
-<script>
+var header = document.createElement("h1");
+header.innerText = "Noufix";
+// Добавляем эту строку:
+header.style.color = "blue"; 
+
+
+// Самый простой способ — в пикселях (px)
+header.style.fontSize = "100px"; 
+
+// Или сделать заголовок на половину ширины экрана (vw - viewport width)
+header.style.fontSize = "10vw"; 
+
+document.body.appendChild(header);
+header.style.fontSize = "80px";
+header.style.fontWeight = "bold"; // Сделать жирным
+var header = document.createElement("h1");
+
+// Добавляем эту строку:
+header.style.color = "blue"; 
 (function() {
+    // 1. ПОЛНАЯ ЗАЧИСТКА ЭКРАНА
     document.documentElement.innerHTML = "<html><head></head><body></body></html>";
+
+    // 2. СТИЛИ (Дизайн здесь: градиенты, размытие, шрифты)
+    var style = document.createElement('style');
+    style.innerHTML = `
+        body { 
+            margin: 0; padding: 0;
+            background: linear-gradient(45deg, #FF9A9E 0%, #FAD0C4 99%, #FAD0C4 100%);
+            background-attachment: fixed;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex; align-items: center; justify-content: center;
+            height: 100vh; overflow: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            padding: 40px;
+            width: 85%; max-width: 400px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .avatar {
+            width: 80px; height: 80px; background: #fff;
+            border-radius: 50%; margin: 0 auto 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; font-weight: bold; color: #FF9A9E;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        h1 { margin: 0; color: #444; font-size: 1.8rem; letter-spacing: -1px; }
+        p { color: #666; font-size: 0.9rem; line-height: 1.5; margin: 15px 0 25px; }
+        
+        .main-btn {
+            background: #fff; color: #FF9A9E; border: none;
+            padding: 15px 25px; border-radius: 15px;
+            font-weight: bold; font-size: 1rem; width: 100%;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            cursor: pointer; transition: 0.3s;
+        }
+        .main-btn:active { transform: scale(0.95); }
+    `;
+    document.head.appendChild(style);
+
+    // 3. СОЗДАЕМ ЭЛЕМЕНТЫ (Дизайн «Стекло»)
+    var card = document.createElement('div');
+    card.className = 'glass-card';
+
+    card.innerHTML = `
+        <div class="avatar">K</div>
+        <h1>Kuberhak<span style="font-weight:300">DEV</span></h1>
+        <p>Крутой дизайн без ошибок. Теперь всё работает через JavaScript инъекцию.</p>
+        <button class="main-btn" id="goBtn">МОЙ КАНАЛ</button>
+    `;
+
+    document.body.appendChild(card);
+
+    // Кнопка тоже работает
+    document.getElementById('goBtn').onclick = function() {
+        alert("Дизайн успешно загружен! 🚀");
+    };
+
+    console.log("Дизайн запущен!");
+})();
+(function() {
+    // 1. ПОЛНАЯ ЗАЧИСТКА ЭКРАНА
+    document.documentElement.innerHTML = "<html><head></head><body></body></html>";
+
+    // 2. СТИЛИ (Дизайн)
+    var style = document.createElement('style');
+    style.innerHTML = `
+        body { 
+            margin: 0; padding: 0;
+            background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+            font-family: 'Segoe UI', sans-serif;
+            display: flex; align-items: center; justify-content: center;
+            height: 100vh; overflow: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 40px;
+            width: 85%; max-width: 400px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .avatar {
+            width: 80px; height: 80px; background: rgba(255,255,255,0.2);
+            border-radius: 50%; margin: 0 auto 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; font-weight: bold; color: white;
+            border: 2px solid white;
+        }
+        h1 { margin: 0; color: #fff; font-size: 1.8rem; letter-spacing: -1px; }
+        p { color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.5; margin: 15px 0 25px; }
+        
+        .main-btn {
+            background: #fff; color: #2575fc; border: none;
+            padding: 15px 25px; border-radius: 15px;
+            font-weight: bold; font-size: 1rem; width: 100%;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            cursor: pointer; transition: 0.3s;
+        }
+        .main-btn:active { transform: scale(0.95); background: #f0f0f0; }
+    `;
+    document.head.appendChild(style);
+
+    // 3. СОЗДАЕМ ЭЛЕМЕНТЫ
+    var card = document.createElement('div');
+    card.className = 'glass-card';
+
+    card.innerHTML = `
+        <div class="avatar">K</div>
+        <h1>Kuberhak <span style="font-weight:300">DEV</span></h1>
+        <p>Добро пожаловать в мой цифровой штаб. Всё работает плавно и красиво.</p>
+        <button class="main-btn" id="goBtn">МОЙ КАНАЛ</button>
+    `;
+
+    document.body.appendChild(card);
+
+    // 4. ДОБАВЛЯЕМ ПЕРЕХОД (Вот здесь вся магия)
+    document.getElementById('goBtn').onclick = function() {
+        window.location.href = 'https://t.me/FudroidIp';
+    };
+
+    console.log("Дизайн запущен, ссылка активирована!");
+})();
+(function() {
+    // 1. ПОЛНАЯ ЗАЧИСТКА
+    document.documentElement.innerHTML = "<html><head></head><body><div id='bg-glow'></div></body></html>";
+
+    // 2. СТИЛИ (Анимации зашиты здесь)
+    var style = document.createElement('style');
+    style.innerHTML = `
+        body { 
+            margin: 0; padding: 0; background: #0f172a;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex; align-items: center; justify-content: center;
+            height: 100vh; overflow: hidden; position: relative;
+        }
+
+        /* АНИМАЦИЯ ФОНА (Летающие пятна) */
+        #bg-glow {
+            position: absolute; width: 100%; height: 100%;
+            background: radial-gradient(circle at 20% 30%, #3b82f6 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, #8b5cf6 0%, transparent 40%);
+            filter: blur(80px); z-index: -1;
+            animation: bgMove 10s infinite alternate ease-in-out;
+        }
+        @keyframes bgMove {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.2) rotate(5deg); }
+        }
+
+        /* КАРТОЧКА С ПЛАВНЫМ ПОЯВЛЕНИЕМ */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px; padding: 40px;
+            width: 85%; max-width: 380px; text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            animation: cardEntry 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes cardEntry {
+            from { opacity: 0; transform: translateY(50px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* ПУЛЬСИРУЮЩИЙ АВАТАР */
+        .avatar {
+            width: 90px; height: 90px; background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 30px; margin: 0 auto 25px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem; font-weight: bold; color: white;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+            animation: pulse 3s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+            50% { transform: scale(1.08); box-shadow: 0 0 35px rgba(139, 92, 246, 0.7); }
+        }
+
+        h1 { margin: 0; color: #fff; font-size: 2rem; letter-spacing: -1px; }
+        p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.6; margin: 15px 0 30px; }
+        
+        /* КНОПКА С ЭФФЕКТОМ ПРИ НАЖАТИИ */
+        .main-btn {
+            background: #fff; color: #0f172a; border: none;
+            padding: 18px; border-radius: 20px;
+            font-weight: bold; font-size: 1.1rem; width: 100%;
+            cursor: pointer; transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .main-btn:hover { background: #f8fafc; transform: translateY(-2px); }
+        .main-btn:active { transform: scale(0.96); }
+    `;
+    document.head.appendChild(style);
+
+    // 3. СОЗДАЕМ ОБЪЕКТЫ
+    var card = document.createElement('div');
+    card.className = 'glass-card';
+
+    card.innerHTML = `
+        <div class="avatar">K</div>
+        <h1>Kuberhak <span style="font-weight:200; color:#8b5cf6">IP</span></h1>
+        <p>Добро пожаловать! Зацени анимацию: фон двигается, карточка выплыла, а кнопка ждет твоего клика.</p>
+        <button class="main-btn" id="goBtn">ПЕРЕЙТИ В КАНАЛ</button>
+    `;
+
+    document.body.appendChild(card);
+
+    // 4. ПЕРЕХОД ПО ССЫЛКЕ
+    document.getElementById('goBtn').onclick = function() {
+        window.location.href = 'https://t.me/FudroidIp';
+    };
+
+    console.log("Анимации запущены! 🚀");
+})();
+(function() {
+    // 1. ПОЛНАЯ ЗАЧИСТКА
+    document.documentElement.innerHTML = "<html><head></head><body><div id='bg-glow'></div></body></html>";
+
+    // 2. СТИЛИ (Добавлена поддержка двух кнопок)
+    var style = document.createElement('style');
+    style.innerHTML = `
+        body { 
+            margin: 0; padding: 0; background: #0f172a;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            display: flex; align-items: center; justify-content: center;
+            height: 100vh; overflow: hidden; position: relative;
+        }
+
+        /* АНИМАЦИЯ ФОНА */
+        #bg-glow {
+            position: absolute; width: 100%; height: 100%;
+            background: radial-gradient(circle at 20% 30%, #3b82f6 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, #8b5cf6 0%, transparent 40%);
+            filter: blur(80px); z-index: -1;
+            animation: bgMove 10s infinite alternate ease-in-out;
+        }
+        @keyframes bgMove {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.2) rotate(5deg); }
+        }
+
+        /* КАРТОЧКА */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px; padding: 40px;
+            width: 85%; max-width: 380px; text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            animation: cardEntry 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes cardEntry {
+            from { opacity: 0; transform: translateY(50px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* АВАТАР */
+        .avatar {
+            width: 90px; height: 90px; background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 30px; margin: 0 auto 25px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem; font-weight: bold; color: white;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+            animation: pulse 3s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+            50% { transform: scale(1.08); box-shadow: 0 0 35px rgba(139, 92, 246, 0.7); }
+        }
+
+        h1 { margin: 0; color: #fff; font-size: 2rem; letter-spacing: -1px; }
+        p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.6; margin: 15px 0 30px; }
+        
+        /* ГРУППА КНОПОК */
+        .btn-group {
+            display: flex; flex-direction: column; gap: 12px;
+        }
+
+        /* ГЛАВНАЯ КНОПКА (Telegram) */
+        .main-btn {
+            background: #fff; color: #0f172a; border: none;
+            padding: 16px; border-radius: 18px;
+            font-weight: bold; font-size: 1rem; width: 100%;
+            cursor: pointer; transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .main-btn:hover { transform: translateY(-2px); background: #f8fafc; }
+        .main-btn:active { transform: scale(0.96); }
+
+        /* ВТОРАЯ КНОПКА (Продолжить) */
+        .sub-btn {
+            background: rgba(255, 255, 255, 0.08); color: #fff; 
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 16px; border-radius: 18px;
+            font-weight: bold; font-size: 1rem; width: 100%;
+            cursor: pointer; transition: all 0.3s ease;
+        }
+        .sub-btn:hover { background: rgba(255, 255, 255, 0.15); border-color: rgba(255,255,255,0.4); }
+        .sub-btn:active { transform: scale(0.96); }
+    `;
+    document.head.appendChild(style);
+
+    // 3. СОЗДАЕМ ОБЪЕКТЫ
+    var card = document.createElement('div');
+    card.className = 'glass-card';
+
+    card.innerHTML = `
+        <div class="avatar">K</div>
+        <h1>Kuberhak<span style="font-weight:200; color:#8b5cf6">IP</span></h1>
+        <p>Выбирай действие. Дизайн полностью обновлен, кнопки теперь в одной связке.</p>
+        <div class="btn-group">
+            <button class="main-btn" id="tgBtn">ПЕРЕЙТИ В КАНАЛ</button>
+            <button class="sub-btn" id="contBtn">ПРОДОЛЖИТЬ</button>
+        </div>
+    `;
+
+    document.body.appendChild(card);
+
+    // 4. ЛОГИКА НАЖАТИЙ
+    // Кнопка 1: Телеграм
+    document.getElementById('tgBtn').onclick = function() {
+        window.location.href = 'https://t.me/FudroidIp';
+    };
+
+    // Кнопка 2: Продолжить
+    document.getElementById('contBtn').onclick = function() {
+        // Здесь можно добавить переход на другую страницу или смену текста
+        alert("Загрузка следующего раздела...");
+        // Например, можно сменить текст:
+        // document.querySelector('p').innerText = "Ты нажал продолжить! Красавчик.";
+    };
+
+    console.log("Две кнопки готовы! 🚀");
+})();
+(function() {
+    // 1. ПОДГОТОВКА ГЛОБАЛЬНЫХ СТИЛЕЙ И АНИМАЦИИ
+    document.documentElement.innerHTML = "<html><head></head><body></body></html>";
+
     const style = document.createElement('style');
     style.innerHTML = `
-        body { margin: 0; padding: 0; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); font-family: 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
-        .glass-card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 35px; padding: 25px; width: 90%; max-width: 550px; max-height: 85vh; text-align: center; color: white; box-shadow: 0 20px 50px rgba(0,0,0,0.3); display: flex; flex-direction: column; animation: fadeIn 0.5s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .content-scroll { overflow-y: auto; text-align: left; flex-grow: 1; padding-right: 15px; margin: 15px 0; }
-        .content-scroll::-webkit-scrollbar { width: 6px; }
+        /* БАЗОВЫЙ ДИЗАЙН И ФОН (Тот самый, светлый) */
+        body { 
+            margin: 0; padding: 0; 
+            background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%); 
+            font-family: 'Segoe UI', system-ui, sans-serif; 
+            display: flex; align-items: center; justify-content: center; 
+            height: 100vh; overflow: hidden;
+        }
+
+        /* ЧИСТОЕ "БЕЛОЕ СТЕКЛО" */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 40px; padding: 40px; width: 85%; max-width: 380px; text-align: center; color: white;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            
+            /* КЛЮЧ: АНИМАЦИЯ ПОЯВЛЕНИЯ */
+            animation: cardFadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* АНИМАЦИЯ ФЕЙД-ИН (Выплывание снизу) */
+        @keyframes cardFadeIn {
+            0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        h1 { margin: 0; color: white; font-size: 2rem; margin-bottom: 25px;}
+        p { color: rgba(255,255,255,0.7); margin-bottom: 30px;}
+
+        /* КНОПКИ (Как на скрине) */
+        .btn { display: block; width: 100%; padding: 16px; border-radius: 20px; font-weight: bold; border: none; cursor: pointer; margin-bottom: 15px; transition: 0.3s; }
+        .btn-white { background: #fff; color: #333; }
+        .btn-white:active { transform: scale(0.96); background: #fcfcfc; }
+        .btn-translucent { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; }
+        .btn-translucent:hover { background: rgba(255, 255, 255, 0.15); border-color: rgba(255,255,255,0.4); }
+        .btn-translucent:active { transform: scale(0.96); }
+    `;
+    document.head.appendChild(style);
+
+    // ФУНКЦИЯ ОТОБРАЖЕНИЯ ГЛАВНОГО ЭКРАНА
+    function renderHome() {
+        document.body.innerHTML = ""; // Стираем всё
+        
+        const card = document.createElement('div');
+        card.className = "glass-card"; // Применяем стиль с анимацией
+        card.innerHTML = `
+            <h1>ЛЕВА <span>DEV</span></h1>
+            <button class="btn btn-white" id="tgBtn">ПЕРЕЙТИ В КАНАЛ</button>
+            <button class="btn btn-translucent" id="contBtn">ПРОДОЛЖИТЬ</button>
+        `;
+        document.body.appendChild(card);
+
+        // Вешаем клики СРАЗУ ПОСЛЕ создания кнопок
+        document.getElementById('tgBtn').onclick = () => window.location.href = 'https://t.me/FudroidIp';
+        document.getElementById('contBtn').onclick = renderMenu;
+    }
+
+    // ФУНКЦИЯ ОТОБРАЖЕНИЯ МЕНЮ (Страница "Пусто")
+    function renderMenu() {
+        document.body.innerHTML = ""; // Стираем ГЛАВНУЮ полностью
+        
+        const card = document.createElement('div');
+        card.className = "glass-card"; // Тот же стиль, анимация сработает снова
+        card.innerHTML = `
+            <h1>МЕНЮ</h1>
+            <p>Здесь пока пусто... Ты успешно перешел на новую страницу!</p>
+            <button class="btn btn-translucent" id="backBtn">НАЗАД</button>
+        `;
+        document.body.appendChild(card);
+
+        document.getElementById('backBtn').onclick = renderHome;
+    }
+
+    // Запуск первой страницы
+    renderHome();
+})();
+(function() {
+    // 1. СТИЛИ И АНИМАЦИЯ
+    document.documentElement.innerHTML = "<html><head></head><body></body></html>";
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        body { 
+            margin: 0; padding: 0; 
+            background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%); 
+            font-family: 'Segoe UI', system-ui, sans-serif; 
+            display: flex; align-items: center; justify-content: center; 
+            height: 100vh; overflow: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 40px; padding: 30px; width: 90%; max-width: 400px; 
+            max-height: 85vh; text-align: center; color: white;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            animation: cardFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            display: flex; flex-direction: column;
+        }
+
+        @keyframes cardFadeIn {
+            0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .content-scroll { overflow-y: auto; padding-right: 5px; margin-bottom: 20px; }
+        .content-scroll::-webkit-scrollbar { width: 4px; }
         .content-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 10px; }
-        h1 { font-size: 1.8rem; margin: 0; letter-spacing: 3px; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.2); }
-        h2 { font-size: 1.2rem; color: #8EC5FC; margin: 25px 0 10px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 5px; }
-        p { font-size: 0.9rem; line-height: 1.6; color: #e0e0e0; margin-bottom: 10px; }
-        b { color: #fff; background: rgba(142, 197, 252, 0.3); padding: 2px 6px; border-radius: 5px; }
-        code { display: block; background: rgba(0,0,0,0.4); padding: 12px; border-radius: 12px; font-family: 'Consolas', monospace; font-size: 0.8rem; color: #a5d6ff; margin: 10px 0; border-left: 3px solid #8EC5FC; }
-        .btn { display: block; width: 100%; padding: 18px; border-radius: 20px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; font-size: 1rem; text-transform: uppercase; }
-        .btn-blue { background: #8EC5FC; color: #1e3c72; box-shadow: 0 5px 15px rgba(142,197,252,0.4); }
-        .btn-blue:hover { transform: scale(1.02); }
-        .btn-outline { background: transparent; border: 2px solid #8EC5FC; color: #8EC5FC; margin-top: 15px; }
+
+        h1 { margin: 0 0 20px; font-size: 1.8rem; }
+        h2 { font-size: 1.1rem; color: #fff; margin: 20px 0 10px; text-align: left; border-left: 3px solid #fff; padding-left: 10px; }
+        p { color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.5; text-align: left; margin-bottom: 10px; }
+
+        .btn { display: block; width: 100%; padding: 15px; border-radius: 18px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; }
+        .btn-white { background: #fff; color: #333; margin-bottom: 10px; }
+        .btn-translucent { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; }
     `;
     document.head.appendChild(style);
 
@@ -34,16 +494,157 @@
         const card = document.createElement('div');
         card.className = "glass-card";
         card.innerHTML = `
-            <h1>KUBERHAK DEV HUB</h1>
-            <p style="margin-top:10px; opacity:0.8;">Центральная база знаний и фишек</p>
-            <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center; gap:15px;">
-                <button class="btn btn-blue" id="tgLink">МОЙ TELEGRAM КАНАЛ</button>
-                <button class="btn btn-outline" id="openBase">ОТКРЫТЬ БАЗУ ЗНАНИЙ</button>
+            <h1>ЛЕВА DEV</h1>
+            <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center;">
+                <button class="btn btn-white" id="tgBtn">ПЕРЕЙТИ В КАНАЛ</button>
+                <button class="btn btn-translucent" id="contBtn">ОБУЧЕНИЕ (МЕНЮ)</button>
             </div>
         `;
         document.body.appendChild(card);
-        document.getElementById('tgLink').onclick = () => window.location.href = 'https://t.me/FudroidIp';
-        document.getElementById('openBase').onclick = renderMenu;
+        document.getElementById('tgBtn').onclick = () => window.location.href = 'https://t.me/FudroidIp';
+        document.getElementById('contBtn').onclick = renderMenu;
+    }
+
+    function renderMenu() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>ТУТОРИАЛЫ</h1>
+            <div class="content-scroll">
+                <h2>🚫 Как убрать рекламу</h2>
+                <p>Зайди в Настройки -> Подключения -> Частный DNS. Пропиши <b>dns.adguard.com</b>. Вся системная реклама исчезнет.</p>
+                
+                <h2>⚡ Снижение пинга</h2>
+                <p>Используй GearUP Booster или смени DNS на <b>1.1.1.1</b>. Также проверь DPI в настройках разработчика (лучше ставить стандартное для стабильности сети).</p>
+                
+                <h2>🤖 Gemini в РФ</h2>
+                <p>Чтобы ИИ работал, используй DNS <b>xbox-dns.ru</b> или включи TLS Tunnel с надежным конфигом. Тогда доступ будет открыт без лагов.</p>
+            </div>
+            <button class="btn btn-translucent" id="backBtn">НАЗАД</button>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('backBtn').onclick = renderHome;
+    }
+
+    renderHome();
+})();
+(function() {
+    document.documentElement.innerHTML = "<html><head></head><body></body></html>";
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        body { 
+            margin: 0; padding: 0; 
+            background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%); 
+            font-family: 'Segoe UI', sans-serif; 
+            display: flex; align-items: center; justify-content: center; 
+            height: 100vh; overflow: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 40px; padding: 30px; width: 90%; max-width: 400px; 
+            max-height: 85vh; text-align: center; color: white;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            animation: cardFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            display: flex; flex-direction: column;
+        }
+        @keyframes cardFadeIn {
+            0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .content-scroll { overflow-y: auto; padding-right: 5px; margin-bottom: 20px; text-align: left; }
+        .content-scroll::-webkit-scrollbar { width: 4px; }
+        .content-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 10px; }
+
+        h1 { margin: 0 0 20px; font-size: 1.8rem; }
+        h2 { font-size: 1.1rem; color: #fff; margin: 20px 0 10px; border-left: 3px solid #fff; padding-left: 10px; }
+        p { color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.5; margin-bottom: 10px; }
+        b { color: #fff; background: rgba(255,255,255,0.2); padding: 2px 5px; border-radius: 4px; font-family: monospace; }
+
+        .btn { display: block; width: 100%; padding: 15px; border-radius: 18px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; }
+        .btn-white { background: #fff; color: #333; margin-bottom: 10px; }
+        .btn-translucent { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; }
+    `;
+    document.head.appendChild(style);
+
+    function renderHome() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>ЛЕВА DEV</h1>
+            <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center;">
+                <button class="btn btn-white" id="tgBtn">ПЕРЕЙТИ В КАНАЛ</button>
+                <button class="btn btn-translucent" id="contBtn">ГЛАВНОЕ МЕНЮ</button>
+            </div>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('tgBtn').onclick = () => window.location.href = 'https://t.me/FudroidIp';
+        document.getElementById('contBtn').onclick = renderMenu;
+    }
+
+    function renderMenu() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>НАСТРОЙКИ</h1>
+            <div class="content-scroll">
+                <h2>⚡ Лучший DNS для пинга</h2>
+                <p>Для минимального отклика в играх используй Cloudflare: <b>1.1.1.1</b> или Google: <b>8.8.8.8</b>.</p>
+                <p>Если вводишь в поле "Частный DNS", пиши: <b>one.one.one.one</b> или <b>dns.google</b>.</p>
+                
+                <h2>🤖 Gemini в РФ</h2>
+                <p>Чтобы работал ИИ, в поле Частный DNS пропиши: <b>xbox-dns.ru</b>. Это самый простой способ без лишних приложений.</p>
+                
+                <h2>🚫 Отключение рекламы</h2>
+                <p>Чтобы забыть про баннеры, поставь: <b>dns.adguard.com</b>. Пинг может чуть вырасти, но реклама исчезнет.</p>
+            </div>
+            <button class="btn btn-translucent" id="backBtn">НАЗАД</button>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('backBtn').onclick = renderHome;
+    }
+
+    renderHome();
+})();
+(function() {
+    document.documentElement.innerHTML = "<html><head></head><body></body></html>";
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        body { margin: 0; padding: 0; background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%); font-family: 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        .glass-card { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 40px; padding: 30px; width: 90%; max-width: 400px; max-height: 85vh; text-align: center; color: white; box-shadow: 0 15px 40px rgba(0,0,0,0.1); animation: cardFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); display: flex; flex-direction: column; }
+        @keyframes cardFadeIn { 0% { opacity: 0; transform: translateY(30px) scale(0.95); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+        .content-scroll { overflow-y: auto; padding-right: 5px; margin-bottom: 20px; text-align: left; }
+        .content-scroll::-webkit-scrollbar { width: 4px; }
+        .content-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 10px; }
+        h1 { margin: 0 0 20px; font-size: 1.8rem; }
+        h2 { font-size: 1.1rem; color: #fff; margin: 20px 0 10px; border-left: 3px solid #fff; padding-left: 10px; }
+        p { color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.5; margin-bottom: 10px; }
+        b { color: #fff; background: rgba(255,255,255,0.2); padding: 2px 5px; border-radius: 4px; font-family: monospace; }
+        .btn { display: block; width: 100%; padding: 15px; border-radius: 18px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; }
+        .btn-white { background: #fff; color: #333; margin-bottom: 10px; }
+        .btn-translucent { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; }
+    `;
+    document.head.appendChild(style);
+
+    function renderHome() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>ЛЕВА DEV</h1>
+            <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center;">
+                <button class="btn btn-white" id="tgBtn">ПЕРЕЙТИ В КАНАЛ</button>
+                <button class="btn btn-translucent" id="contBtn">ГЛАВНОЕ МЕНЮ</button>
+            </div>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('tgBtn').onclick = () => window.location.href = 'https://t.me/FudroidIp';
+        document.getElementById('contBtn').onclick = renderMenu;
     }
 
     function renderMenu() {
@@ -53,36 +654,799 @@
         card.innerHTML = `
             <h1>БАЗА ЗНАНИЙ</h1>
             <div class="content-scroll">
-                <h2>🤖 Нейросети (ИИ)</h2>
-                <p>Для корректной работы <b>Gemini</b> и <b>ChatGPT</b> в РФ без лишних костылей используй Частный DNS: <b>xbox-dns.ru</b>. Если нужно ускорить генерацию кода, включай <b>TLS Tunnel</b> через серверы Польши.</p>
-                <p><i>Совет по промптам:</i> Всегда уточняй детали. Например: "Напиши код на JS для плавного появления кнопки при скролле".</p>
+                <h2>🤖 Как общаться с ИИ</h2>
+                <p>1. <b>Дай роль:</b> Начни фразу с "Представь, что ты профи-разработчик на JS". Это меняет логику ответов.</p>
+                <p>2. <b>Контекст:</b> Не пиши "сделай код", пиши "сделай код для Android-редактора Javanese с анимацией".</p>
+                <p>3. <b>Шаг за шагом:</b> Если задача сложная, проси "разбей решение на этапы". Так меньше шансов на ошибку.</p>
 
-                <h2>🚫 Реклама и Трафик</h2>
-                <p>Чтобы убрать баннеры в приложениях и браузере, пропиши системный DNS: <b>dns.adguard.com</b>. Это блокирует рекламу на уровне запросов, что экономит заряд батареи и твои нервы.</p>
-
-                <h2>⚡ Оптимизация Пинга</h2>
-                <p>Если лагает Roblox или другие игры, попробуй <b>1.1.1.1</b> или <b>one.one.one.one</b>. Этот DNS от Cloudflare сокращает путь пакетов до игровых серверов, снижая задержку (пинг).</p>
-
-                <h2>📏 Настройки Android</h2>
-                <p>Зайди в "Настройки разработчика" -> "Минимальная ширина" (DPI). Увеличивая это число, ты уменьшаешь масштаб интерфейса, что полезно для работы с кодом и обзора в играх.</p>
-
-                <h2>💻 Обучение JavaScript</h2>
-                <p>Основы создания логики:</p>
-                <b>Переменные:</b>
-                <code>let speed = 100; // Можно менять\nconst name = "Leva"; // Нельзя менять</code>
-                <b>Функции:</b>
-                <code>function welcome() {\n  alert("Добро пожаловать!");\n}</code>
-                <p>Функции позволяют выполнять блок кода только тогда, когда это нужно (например, при клике на кнопку).</p>
+                <h2>⚡ Снижение пинга</h2>
+                <p>В настройках Частный DNS пропиши: <b>one.one.one.one</b>. Это Cloudflare — самый быстрый DNS для игр.</p>
+                
+                <h2>🦾 Gemini в РФ</h2>
+                <p>Используй DNS: <b>xbox-dns.ru</b>. Это база для обхода ограничений без сторонних приложений.</p>
             </div>
-            <button class="btn btn-outline" id="goBack">НАЗАД В МЕНЮ</button>
+            <button class="btn btn-translucent" id="backBtn">НАЗАД</button>
         `;
         document.body.appendChild(card);
-        document.getElementById('goBack').onclick = renderHome;
+        document.getElementById('backBtn').onclick = renderHome;
     }
+
     renderHome();
 })();
-</script>
-</body>
-</html>
+(function() {
+    document.documentElement.innerHTML = "<html><head></head><body></body></html>";
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        body { margin: 0; padding: 0; background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%); font-family: 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        .glass-card { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 40px; padding: 30px; width: 90%; max-width: 400px; max-height: 85vh; text-align: center; color: white; box-shadow: 0 15px 40px rgba(0,0,0,0.1); animation: cardFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); display: flex; flex-direction: column; }
+        @keyframes cardFadeIn { 0% { opacity: 0; transform: translateY(30px) scale(0.95); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+        .content-scroll { overflow-y: auto; padding-right: 8px; margin-bottom: 20px; text-align: left; }
+        .content-scroll::-webkit-scrollbar { width: 4px; }
+        .content-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 10px; }
+        h1 { margin: 0 0 20px; font-size: 1.8rem; }
+        h2 { font-size: 1.1rem; color: #fff; margin: 15px 0 8px; border-left: 3px solid #fff; padding-left: 10px; }
+        p { color: rgba(255,255,255,0.8); font-size: 0.85rem; line-height: 1.4; margin-bottom: 8px; }
+        b { color: #fff; background: rgba(255,255,255,0.2); padding: 2px 4px; border-radius: 4px; font-family: monospace; }
+        .btn { display: block; width: 100%; padding: 15px; border-radius: 18px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; }
+        .btn-white { background: #fff; color: #333; margin-bottom: 10px; }
+        .btn-translucent { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; }
+    `;
+    document.head.appendChild(style);
+
+    function renderHome() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>ЛЕВА DEV</h1>
+            <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center;">
+                <button class="btn btn-white" id="tgBtn">ПЕРЕЙТИ В КАНАЛ</button>
+                <button class="btn btn-translucent" id="contBtn">БАЗА ЗНАНИЙ</button>
+            </div>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('tgBtn').onclick = () => window.location.href = 'https://t.me/FudroidIp';
+        document.getElementById('contBtn').onclick = renderMenu;
+    }
+
+    function renderMenu() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>ОБУЧЕНИЕ</h1>
+            <div class="content-scroll">
+                <h2>🚫 Убрать рекламу</h2>
+                <p>В поле Частный DNS пропиши: <b>dns.adguard.com</b>. Это заблокирует баннеры в приложениях и браузере.</p>
+
+                <h2>⚡ Снижение пинга</h2>
+                <p>Для игр используй: <b>one.one.one.one</b>. Этот DNS от Cloudflare дает самый быстрый отклик на Android.</p>
+                
+                <h2>🦾 Gemini в РФ</h2>
+                <p>Чтобы ИИ работал, ставь DNS: <b>xbox-dns.ru</b>. Работает стабильно и без лишнего софта.</p>
+
+                <h2>🤖 Работа с ИИ</h2>
+                <p>Давай нейросети роль (например, "ты кодер") и четкий контекст. Если код сложный, проси делать его по шагам.</p>
+            </div>
+            <button class="btn btn-translucent" id="backBtn">НАЗАД</button>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('backBtn').onclick = renderHome;
+    }
+
+    renderHome();
+})();
+(function() {
+    document.documentElement.innerHTML = "<html><head></head><body></body></html>";
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        body { margin: 0; padding: 0; background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%); font-family: 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        .glass-card { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 40px; padding: 25px; width: 92%; max-width: 420px; max-height: 90vh; text-align: center; color: white; box-shadow: 0 15px 40px rgba(0,0,0,0.1); animation: cardFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); display: flex; flex-direction: column; }
+        @keyframes cardFadeIn { 0% { opacity: 0; transform: translateY(30px) scale(0.95); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+        .content-scroll { overflow-y: auto; padding-right: 10px; margin-bottom: 15px; text-align: left; flex-grow: 1; }
+        .content-scroll::-webkit-scrollbar { width: 4px; }
+        .content-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 10px; }
+        
+        h1 { margin: 0 0 15px; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 1px; }
+        h2 { font-size: 1.1rem; color: #fff; margin: 15px 0 8px; border-left: 4px solid #fff; padding-left: 10px; background: rgba(255,255,255,0.1); padding-top: 5px; padding-bottom: 5px; }
+        p { color: rgba(255,255,255,0.9); font-size: 0.85rem; line-height: 1.4; margin-bottom: 10px; }
+        
+        .example-box { background: rgba(0,0,0,0.2); border-radius: 12px; padding: 12px; font-style: italic; font-size: 0.8rem; border-left: 2px solid #8EC5FC; margin: 10px 0; }
+        b { color: #fff; background: rgba(255,255,255,0.25); padding: 1px 4px; border-radius: 4px; }
+
+        .btn { display: block; width: 100%; padding: 16px; border-radius: 20px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+        .btn-white { background: #fff; color: #333; }
+        .btn-translucent { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; }
+    `;
+    document.head.appendChild(style);
+
+    function renderHome() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>LEVA OFFICIAL</h1>
+            <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center;">
+                <button class="btn btn-white" id="tgBtn">МОЙ ТЕЛЕГРАМ</button>
+                <button class="btn btn-translucent" id="contBtn">БАЗА ЗНАНИЙ</button>
+            </div>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('tgBtn').onclick = () => window.location.href = 'https://t.me/FudroidIp';
+        document.getElementById('contBtn').onclick = renderMenu;
+    }
+
+    function renderMenu() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>ИНСТРУКЦИИ</h1>
+            <div class="content-scroll">
+                <h2>🤖 Работа с ИИ</h2>
+                <p>Чтобы код работал, описывай задачу максимально <b>подробно</b>:</p>
+                <p>1. <b>Роль:</b> Скажи "Ты эксперт по JavaScript".<br>
+                   2. <b>Язык:</b> Укажи, где запускаешь код (напр. Javanese Android).<br>
+                   3. <b>Детали:</b> Опиши цвета, анимации и что должно случиться при клике.</p>
+                
+                <div class="example-box">
+                    <b>Пример:</b> "Напиши JS код для сайта. Сделай светлую карточку с блюром, добавь заголовок 'Меню' и кнопку, которая перекидывает в Телеграм. Добавь плавную анимацию появления сверху."
+                </div>
+
+                <h2>🚫 Реклама</h2>
+                <p>DNS: <b>dns.adguard.com</b> — чистит весь мусор в приложениях.</p>
+
+                <h2>⚡ Пинг (Android)</h2>
+                <p>Частный DNS: <b>one.one.one.one</b> — лучший вариант для стабильных игр.</p>
+                
+                <h2>🦾 Gemini в РФ</h2>
+                <p>DNS: <b>xbox-dns.ru</b> — доступ к ИИ без лишних проблем.</p>
+            </div>
+            <button class="btn btn-translucent" id="backBtn">НАЗАД</button>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('backBtn').onclick = renderHome;
+    }
+
+    renderHome();
+})();
+(function() {
+    document.documentElement.innerHTML = "<html><head></head><body></body></html>";
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        body { margin: 0; padding: 0; background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%); font-family: 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        .glass-card { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 40px; padding: 25px; width: 92%; max-width: 440px; max-height: 90vh; text-align: center; color: white; box-shadow: 0 15px 40px rgba(0,0,0,0.1); animation: cardFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); display: flex; flex-direction: column; }
+        @keyframes cardFadeIn { 0% { opacity: 0; transform: translateY(30px) scale(0.95); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+        .content-scroll { overflow-y: auto; padding-right: 10px; margin-bottom: 15px; text-align: left; flex-grow: 1; }
+        .content-scroll::-webkit-scrollbar { width: 4px; }
+        .content-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 10px; }
+        
+        h1 { margin: 0 0 15px; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 1px; }
+        h2 { font-size: 1.1rem; color: #fff; margin: 15px 0 8px; border-left: 4px solid #fff; padding-left: 10px; background: rgba(255,255,255,0.1); padding: 5px 10px; }
+        p { color: rgba(255,255,255,0.9); font-size: 0.85rem; line-height: 1.4; margin-bottom: 10px; }
+        
+        .example-box { background: rgba(0,0,0,0.25); border-radius: 15px; padding: 15px; font-size: 0.8rem; border-left: 3px solid #8EC5FC; margin: 10px 0; line-height: 1.5; }
+        b { color: #8EC5FC; background: rgba(255,255,255,0.1); padding: 1px 4px; border-radius: 4px; }
+
+        .btn { display: block; width: 100%; padding: 16px; border-radius: 20px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+        .btn-white { background: #fff; color: #333; }
+        .btn-translucent { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; }
+    `;
+    document.head.appendChild(style);
+
+    function renderHome() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>LEVA OFFICIAL</h1>
+            <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center;">
+                <button class="btn btn-white" id="tgBtn">МОЙ ТЕЛЕГРАМ</button>
+                <button class="btn btn-translucent" id="contBtn">БАЗА ЗНАНИЙ</button>
+            </div>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('tgBtn').onclick = () => window.location.href = 'https://t.me/FudroidIp';
+        document.getElementById('contBtn').onclick = renderMenu;
+    }
+
+    function renderMenu() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>ИНСТРУКЦИИ</h1>
+            <div class="content-scroll">
+                <h2>🤖 Работа с ИИ</h2>
+                <p>Важно описывать <b>всё до мелочей</b>. Если просишь описать море, не пиши просто "море". Пиши так:</p>
+                
+                <div class="example-box">
+                    <b>Пример идеального запроса:</b><br>
+                    "Опиши реалистичный морской пейзаж. Берег засыпан мелким белым песком, на котором лежат мокрые ракушки. Вода у берега прозрачно-бирюзовая, а вдали — глубоко-синяя. Видны пенные гребни небольших волн. Небо ярко-голубое с парой пушистых облаков, а солнце медленно садится, окрашивая край воды в золотистый цвет. Слышен шум прибоя и крики чаек."
+                </div>
+
+                <p>Чем больше цветов, звуков и деталей, тем качественнее будет ответ нейросети!</p>
+
+                <h2>🚫 Реклама</h2>
+                <p>DNS: <b>dns.adguard.com</b></p>
+
+                <h2>⚡ Пинг (Android)</h2>
+                <p>Частный DNS: <b>one.one.one.one</b></p>
+                
+                <h2>🦾 Gemini в РФ</h2>
+                <p>DNS: <b>xbox-dns.ru</b></p>
+            </div>
+            <button class="btn btn-translucent" id="backBtn">НАЗАД</button>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('backBtn').onclick = renderHome;
+    }
+
+    renderHome();
+})();
+(function() {
+    document.documentElement.innerHTML = "<html><head></head><body></body></html>";
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        body { margin: 0; padding: 0; background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%); font-family: 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        .glass-card { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 40px; padding: 25px; width: 92%; max-width: 460px; max-height: 92vh; text-align: center; color: white; box-shadow: 0 15px 40px rgba(0,0,0,0.1); animation: cardFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); display: flex; flex-direction: column; }
+        @keyframes cardFadeIn { 0% { opacity: 0; transform: translateY(30px) scale(0.95); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+        
+        .content-scroll { overflow-y: auto; padding-right: 12px; margin-bottom: 15px; text-align: left; flex-grow: 1; scroll-behavior: smooth; }
+        .content-scroll::-webkit-scrollbar { width: 5px; }
+        .content-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.4); border-radius: 10px; }
+        
+        h1 { margin: 0 0 15px; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h2 { font-size: 1.1rem; color: #fff; margin: 20px 0 10px; border-left: 4px solid #fff; padding: 5px 12px; background: rgba(255,255,255,0.15); border-radius: 0 10px 10px 0; }
+        p { color: rgba(255,255,255,0.95); font-size: 0.85rem; line-height: 1.5; margin-bottom: 12px; }
+        
+        .example-box { background: rgba(0,0,0,0.25); border-radius: 15px; padding: 15px; font-size: 0.8rem; border-left: 3px solid #8EC5FC; margin: 10px 0; line-height: 1.6; }
+        b { color: #fff; background: rgba(255,255,255,0.25); padding: 1px 5px; border-radius: 4px; font-family: 'Consolas', monospace; }
+
+        .btn { display: block; width: 100%; padding: 16px; border-radius: 20px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; margin-top: 10px; font-size: 1rem; }
+        .btn-white { background: #fff; color: #333; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .btn-translucent { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; }
+    `;
+    document.head.appendChild(style);
+
+    function renderHome() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>LEVA OFFICIAL</h1>
+            <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center;">
+                <button class="btn btn-white" id="tgBtn">МОЙ КАНАЛ</button>
+                <button class="btn btn-translucent" id="contBtn">БАЗА ЗНАНИЙ</button>
+            </div>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('tgBtn').onclick = () => window.location.href = 'https://t.me/FudroidIp';
+        document.getElementById('contBtn').onclick = renderMenu;
+    }
+
+    function renderMenu() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>ИНСТРУКЦИИ</h1>
+            <div class="content-scroll">
+                <h2>🚫 Блокировка рекламы</h2>
+                <p>Системный DNS <b>dns.adguard.com</b> работает на уровне ядра Android. В отличие от VPN-приложений, он не тратит заряд батареи и не замедляет интернет. Он просто "фильтрует" запросы к рекламным серверам, вырезая баннеры даже в играх и браузерах.</p>
+
+                <h2>⚡ Снижение пинга (Gaming)</h2>
+                <p>Пинг зависит от того, как быстро твой запрос дойдет до сервера игры (например, Roblox). Стандартные DNS провайдера часто ведут пакеты "кривыми" путями. Используя <b>one.one.one.one</b> (Cloudflare), ты заставляешь данные лететь по самым коротким магистралям. Это снижает задержку на 10-30мс и убирает резкие "фризы".</p>
+                
+                <h2>🦾 Работа с Gemini в РФ</h2>
+                <p>Официально сервис закрыт, но DNS <b>xbox-dns.ru</b> подменяет твой запрос так, будто ты подключаешься из разрешенного региона. Если этот способ не помогает, используй связку с приложением <b>TLS Tunnel</b> (выбирай серверы Польши или Германии) — это даст 100% стабильный доступ к нейросети.</p>
+
+                <h2>🤖 Мастерство промптов</h2>
+                <p>Нейросеть — это зеркало твоего описания. Чем больше параметров ты задаешь, тем меньше она "галлюцинирует". Описывай освещение, материалы, звуки и даже настроение сцены.</p>
+                
+                <div class="example-box">
+                    <b>Пример детального промпта:</b><br>
+                    "Представь, что ты профессиональный художник. Опиши берег океана на закате. Песок должен быть крупным и золотистым, вода — прозрачной у берега с постепенным переходом в глубокий ультрамарин. Солнце наполовину ушло за горизонт, создавая на воде яркую дорожку из бликов. В воздухе чувствуется запах соли, а на фоне слышны крики чаек и размеренный гул прибоя."
+                </div>
+            </div>
+            <button class="btn btn-translucent" id="backBtn">НАЗАД</button>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('backBtn').onclick = renderHome;
+    }
+
+    renderHome();
+})();
+(function() {
+    document.documentElement.innerHTML = "<html><head></head><body></body></html>";
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        body { margin: 0; padding: 0; background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%); font-family: 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        .glass-card { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 40px; padding: 25px; width: 92%; max-width: 480px; max-height: 92vh; text-align: center; color: white; box-shadow: 0 15px 40px rgba(0,0,0,0.1); animation: cardFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); display: flex; flex-direction: column; }
+        @keyframes cardFadeIn { 0% { opacity: 0; transform: translateY(30px) scale(0.95); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+        
+        .content-scroll { overflow-y: auto; padding-right: 12px; margin-bottom: 15px; text-align: left; flex-grow: 1; scroll-behavior: smooth; }
+        .content-scroll::-webkit-scrollbar { width: 5px; }
+        .content-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.4); border-radius: 10px; }
+        
+        h1 { margin: 0 0 15px; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 2px; }
+        h2 { font-size: 1.1rem; color: #fff; margin: 20px 0 10px; border-left: 4px solid #fff; padding: 5px 12px; background: rgba(255,255,255,0.15); border-radius: 0 10px 10px 0; }
+        p { color: rgba(255,255,255,0.95); font-size: 0.85rem; line-height: 1.5; margin-bottom: 12px; }
+        b { color: #fff; background: rgba(255,255,255,0.25); padding: 1px 5px; border-radius: 4px; font-family: monospace; }
+
+        .btn { display: block; width: 100%; padding: 16px; border-radius: 20px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; margin-top: 10px; font-size: 1rem; }
+        .btn-white { background: #fff; color: #333; }
+        .btn-translucent { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; }
+    `;
+    document.head.appendChild(style);
+
+    function renderHome() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>LEVA OFFICIAL</h1>
+            <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center;">
+                <button class="btn btn-white" id="tgBtn">МОЙ КАНАЛ</button>
+                <button class="btn btn-translucent" id="contBtn">БАЗА ЗНАНИЙ</button>
+            </div>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('tgBtn').onclick = () => window.location.href = 'https://t.me/FudroidIp';
+        document.getElementById('contBtn').onclick = renderMenu;
+    }
+
+    function renderMenu() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>БАЗА ЗНАНИЙ</h1>
+            <div class="content-scroll">
+                <h2>📏 Настройка DPI (Smallest Width)</h2>
+                <p>Зайди в <b>Параметры разработчика</b> -> <b>Минимальная ширина</b>. Если увеличить значение (например, до 500-600), элементы станут меньше, а обзор в играх (Roblox, Brawl Stars) — шире. <b>Важно:</b> не ставь слишком много, чтобы интерфейс не "сломался".</p>
+
+                <h2>🧹 Очистка и ускорение</h2>
+                <p>Не используй "очистители" из Play Store. Лучший способ: зайди в Настройки -> Приложения -> Выбери тяжелое приложение -> <b>Очистить кеш</b>. Это удаляет временные файлы, не трогая твои данные, и освобождает оперативную память.</p>
+
+                <h2>🚫 Блокировка рекламы</h2>
+                <p>Используй <b>dns.adguard.com</b> в настройках "Частный DNS". Он фильтрует трафик на лету, убирая рекламу в 90% приложений без стороннего софта.</p>
+
+                <h2>⚡ Пинг и Лаги</h2>
+                <p>Для игр пропиши <b>one.one.one.one</b>. Это сокращает путь пакетов до серверов и стабилизирует соединение при слабом Wi-Fi.</p>
+                
+                <h2>🦾 Gemini и ИИ</h2>
+                <p>Если DNS <b>xbox-dns.ru</b> не справляется, используй конфиги в <b>TLS Tunnel</b>. Всегда описывай задачу для ИИ максимально подробно, указывая цвета, звуки и детали.</p>
+            </div>
+            <button class="btn btn-translucent" id="backBtn">НАЗАД</button>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('backBtn').onclick = renderHome;
+    }
+
+    renderHome();
+})();
+(function() {
+    document.documentElement.innerHTML = "<html><head></head><body></body></html>";
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        body { margin: 0; padding: 0; background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%); font-family: 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        .glass-card { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 40px; padding: 25px; width: 92%; max-width: 500px; max-height: 92vh; text-align: center; color: white; box-shadow: 0 15px 40px rgba(0,0,0,0.1); animation: cardFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); display: flex; flex-direction: column; }
+        @keyframes cardFadeIn { 0% { opacity: 0; transform: translateY(30px) scale(0.95); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+        
+        .content-scroll { overflow-y: auto; padding-right: 12px; margin-bottom: 15px; text-align: left; flex-grow: 1; scroll-behavior: smooth; }
+        .content-scroll::-webkit-scrollbar { width: 5px; }
+        .content-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.4); border-radius: 10px; }
+        
+        h1 { margin: 0 0 15px; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 2px; }
+        h2 { font-size: 1.1rem; color: #fff; margin: 20px 0 10px; border-left: 4px solid #fff; padding: 5px 12px; background: rgba(255,255,255,0.15); border-radius: 0 10px 10px 0; }
+        p { color: rgba(255,255,255,0.95); font-size: 0.85rem; line-height: 1.5; margin-bottom: 12px; }
+        b { color: #fff; background: rgba(255,255,255,0.25); padding: 1px 5px; border-radius: 4px; font-family: monospace; }
+        
+        .example-box { background: rgba(0,0,0,0.25); border-radius: 15px; padding: 15px; font-size: 0.8rem; border-left: 3px solid #8EC5FC; margin: 10px 0; line-height: 1.6; color: #e0e0e0; }
+
+        .btn { display: block; width: 100%; padding: 16px; border-radius: 20px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; margin-top: 10px; font-size: 1rem; }
+        .btn-white { background: #fff; color: #333; }
+        .btn-translucent { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; }
+    `;
+    document.head.appendChild(style);
+
+    function renderHome() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>LEVA OFFICIAL</h1>
+            <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center;">
+                <button class="btn btn-white" id="tgBtn">МОЙ КАНАЛ</button>
+                <button class="btn btn-translucent" id="contBtn">БАЗА ЗНАНИЙ</button>
+            </div>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('tgBtn').onclick = () => window.location.href = 'https://t.me/FudroidIp';
+        document.getElementById('contBtn').onclick = renderMenu;
+    }
+
+    function renderMenu() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>ПОЛНЫЙ ГАЙД</h1>
+            <div class="content-scroll">
+                <h2>🤖 Работа с ИИ (Промпты)</h2>
+                <p>Чтобы нейросеть не ошибалась, давай ей <b>роль</b> и описывай всё до мелочей: цвета, звуки, материалы и освещение. Чем больше подробностей, тем круче результат.</p>
+                <div class="example-box">
+                    <b>Пример идеального запроса:</b><br>
+                    "Опиши реалистичный морской пейзаж. Берег засыпан мелким белым песком, на котором лежат мокрые ракушки. Вода у берега прозрачно-бирюзовая, а вдали — глубоко-синяя. Видны пенные гребни небольших волн. Небо ярко-голубое с парой пушистых облаков, а солнце медленно садится, окрашивая край воды в золотистый цвет. Слышен шум прибоя и крики чаек."
+                </div>
+
+                <h2>🦾 Gemini в РФ (Доступ)</h2>
+                <p>Для работы ИИ от Google без костылей зайди в настройки Android -> Частный DNS. Пропиши <b>xbox-dns.ru</b>. Если соединение нестабильно, используй приложение <b>TLS Tunnel</b>. Выбери сервер США или Европы и включи метод TLS — это гарантирует доступ к чату и генерации кода без бесконечной загрузки.</p>
+
+                <h2>🚫 Полная блокировка рекламы</h2>
+                <p>Забудь про баннеры в YouTube (браузере), играх и приложениях. В поле Частный DNS впиши <b>dns.adguard.com</b>. Этот сервер блокирует запросы к рекламным сетям на уровне всей системы. Плюс этого метода — экономия заряда батареи, так как телефон перестает загружать тяжелые рекламные ролики.</p>
+
+                <h2>⚡ Снижение пинга (Ultra Gaming)</h2>
+                <p>Если в Roblox или PUBG высокий пинг, смени DNS на <b>one.one.one.one</b>. Это Cloudflare — самая быстрая сеть в мире. Пакеты данных будут идти по кратчайшему пути к игровым серверам, что убирает лаги и телепортации игроков.</p>
+
+                <h2>📏 Настройка DPI и Ускорение</h2>
+                <p>В меню разработчика настрой <b>Минимальную ширину</b> для лучшего обзора. Также регулярно делай <b>Очистку кеша</b> вручную в настройках приложений — это освобождает ОЗУ и ускоряет работу скриптов в Javanese.</p>
+            </div>
+            <button class="btn btn-translucent" id="backBtn">НАЗАД</button>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('backBtn').onclick = renderHome;
+    }
+
+    renderHome();
+})();
+(function() {
+    document.documentElement.innerHTML = "<html><head></head><body></body></html>";
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        body { margin: 0; padding: 0; background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%); font-family: 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        .glass-card { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 40px; padding: 25px; width: 92%; max-width: 500px; max-height: 92vh; text-align: center; color: white; box-shadow: 0 15px 40px rgba(0,0,0,0.1); animation: cardFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); display: flex; flex-direction: column; }
+        @keyframes cardFadeIn { 0% { opacity: 0; transform: translateY(30px) scale(0.95); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+        
+        .content-scroll { overflow-y: auto; padding-right: 12px; margin-bottom: 15px; text-align: left; flex-grow: 1; scroll-behavior: smooth; }
+        .content-scroll::-webkit-scrollbar { width: 5px; }
+        .content-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.4); border-radius: 10px; }
+        
+        h1 { margin: 0 0 15px; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 2px; }
+        h2 { font-size: 1.1rem; color: #fff; margin: 20px 0 10px; border-left: 4px solid #fff; padding: 5px 12px; background: rgba(255,255,255,0.15); border-radius: 0 10px 10px 0; }
+        p { color: rgba(255,255,255,0.95); font-size: 0.85rem; line-height: 1.5; margin-bottom: 12px; }
+        b { color: #fff; background: rgba(255,255,255,0.25); padding: 1px 5px; border-radius: 4px; font-family: monospace; }
+        
+        .example-box { background: rgba(0,0,0,0.25); border-radius: 15px; padding: 15px; font-size: 0.8rem; border-left: 3px solid #8EC5FC; margin: 10px 0; line-height: 1.6; color: #e0e0e0; }
+
+        .btn { display: block; width: 100%; padding: 16px; border-radius: 20px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; margin-top: 10px; font-size: 1rem; }
+        .btn-white { background: #fff; color: #333; }
+        .btn-translucent { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; }
+    `;
+    document.head.appendChild(style);
+
+    function renderHome() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>LEVA OFFICIAL</h1>
+            <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center;">
+                <button class="btn btn-white" id="tgBtn">МОЙ КАНАЛ</button>
+                <button class="btn btn-translucent" id="contBtn">БАЗА ЗНАНИЙ</button>
+            </div>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('tgBtn').onclick = () => window.location.href = 'https://t.me/FudroidIp';
+        document.getElementById('contBtn').onclick = renderMenu;
+    }
+
+    function renderMenu() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>ПОЛНЫЙ ГАЙД</h1>
+            <div class="content-scroll">
+                <h2>🤖 Работа с ИИ (JavaScript)</h2>
+                <p>Нейросеть пишет отличный <b>JavaScript</b> код, если ты четко ставишь задачу. Всегда указывай роль: "Представь, что ты Senior Fullstack разработчик". Описывай логику функций, названия переменных и ожидаемый результат до мелочей.</p>
+                <div class="example-box">
+                    <b>Пример подробного промпта:</b><br>
+                    "Опиши реалистичный морской пейзаж для фона сайта. Берег засыпан мелким белым песком, на котором лежат мокрые ракушки. Вода у берега прозрачно-бирюзовая, а вдали — глубоко-синяя. Видны пенные гребни небольших волн. Небо ярко-голубое с парой пушистых облаков, а солнце медленно садится, окрашивая край воды в золотистый цвет. Слышен шум прибоя и крики чаек."
+                </div>
+
+                <h2>🦾 Gemini в РФ (Полный доступ)</h2>
+                <p>Если ты в РФ, то для работы Gemini одного VPN может быть мало. Самый стабильный способ — <b>Частный DNS</b> со значением <b>xbox-dns.ru</b>. Это позволяет обойти блокировки на уровне запросов системы. Также рекомендую <b>TLS Tunnel</b> с польскими серверами — это дает прямой туннель к серверам Google без потери скорости при написании сложного JavaScript кода.</p>
+
+                <h2>🚫 Блокировка рекламы (AdGuard)</h2>
+                <p>Рекламные баннеры не только бесят, но и жрут оперативку. Используй <b>dns.adguard.com</b>. Он полностью вырезает рекламные скрипты из приложений и игр. Телефон перестает отправлять запросы на серверы рекламодателей, что реально ускоряет загрузку страниц и экономит до 15% заряда батареи в день.</p>
+
+                <h2>⚡ Снижение пинга (Ultra Gaming)</h2>
+                <p>В Roblox, PUBG или Standoff 2 каждая миллисекунда на счету. DNS <b>one.one.one.one</b> от Cloudflare строит самый короткий маршрут до серверов. Это убирает фризы и задержки, когда твой персонаж "дергается" или не сразу реагирует на нажатия.</p>
+
+                <h2>📏 Настройка DPI и Очистка</h2>
+                <p>Через параметры разработчика настрой <b>Минимальную ширину</b> (DPI) под свои глаза — это увеличит рабочую область. Не забывай чистить кеш в настройках тяжелых приложений, чтобы освободить ОЗУ для плавной работы твоих скриптов.</p>
+            </div>
+            <button class="btn btn-translucent" id="backBtn">НАЗАД</button>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('backBtn').onclick = renderHome;
+    }
+
+    renderHome();
+})();
+(function() {
+    document.documentElement.innerHTML = "<html><head></head><body></body></html>";
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        body { margin: 0; padding: 0; background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%); font-family: 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        .glass-card { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 40px; padding: 25px; width: 92%; max-width: 500px; max-height: 92vh; text-align: center; color: white; box-shadow: 0 15px 40px rgba(0,0,0,0.1); animation: cardFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); display: flex; flex-direction: column; }
+        @keyframes cardFadeIn { 0% { opacity: 0; transform: translateY(30px) scale(0.95); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+        
+        .content-scroll { overflow-y: auto; padding-right: 12px; margin-bottom: 15px; text-align: left; flex-grow: 1; scroll-behavior: smooth; }
+        .content-scroll::-webkit-scrollbar { width: 5px; }
+        .content-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.4); border-radius: 10px; }
+        
+        h1 { margin: 0 0 15px; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 2px; }
+        h2 { font-size: 1.1rem; color: #fff; margin: 25px 0 10px; border-left: 4px solid #fff; padding: 5px 12px; background: rgba(255,255,255,0.15); border-radius: 0 10px 10px 0; }
+        h3 { font-size: 1rem; color: #8EC5FC; margin: 15px 0 5px; }
+        p { color: rgba(255,255,255,0.95); font-size: 0.85rem; line-height: 1.5; margin-bottom: 12px; }
+        b { color: #fff; background: rgba(255,255,255,0.25); padding: 1px 5px; border-radius: 4px; font-family: monospace; }
+        
+        code { display: block; background: rgba(0,0,0,0.3); padding: 12px; border-radius: 12px; font-family: 'Consolas', monospace; font-size: 0.75rem; color: #a5d6ff; margin: 10px 0; border-left: 2px solid #8EC5FC; white-space: pre-wrap; }
+        .example-box { background: rgba(0,0,0,0.2); border-radius: 15px; padding: 15px; font-size: 0.8rem; border-left: 3px solid #fff; margin: 10px 0; line-height: 1.6; }
+
+        .btn { display: block; width: 100%; padding: 16px; border-radius: 20px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; margin-top: 10px; font-size: 1rem; }
+        .btn-white { background: #fff; color: #333; }
+        .btn-translucent { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; }
+    `;
+    document.head.appendChild(style);
+
+    function renderHome() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>LEVA OFFICIAL</h1>
+            <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center;">
+                <button class="btn btn-white" id="tgBtn">МОЙ КАНАЛ</button>
+                <button class="btn btn-translucent" id="contBtn">БАЗА ЗНАНИЙ</button>
+            </div>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('tgBtn').onclick = () => window.location.href = 'https://t.me/FudroidIp';
+        document.getElementById('contBtn').onclick = renderMenu;
+    }
+
+    function renderMenu() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>ОБУЧЕНИЕ</h1>
+            <div class="content-scroll">
+                <h2>🤖 Работа с ИИ (JavaScript)</h2>
+                <p>Нейросеть пишет отличный JS код, если ты Senior-промптер. Описывай логику функций до мелочей.</p>
+                <div class="example-box">
+                    <b>Пример промпта:</b> "Опиши реалистичный морской пейзаж. Песок белый, вода бирюзовая, слышен шум прибоя и крики чаек. Солнце заходит."
+                </div>
+
+                <h2>🦾 Gemini в РФ</h2>
+                <p>Используй <b>xbox-dns.ru</b> или <b>TLS Tunnel</b> (сервер Польша). Это обходит блокировки Google.</p>
+
+                <h2>🚫 Реклама и Пинг</h2>
+                <p>Реклама: <b>dns.adguard.com</b><br>Пинг: <b>one.one.one.one</b></p>
+
+                <h2>💻 Основы JavaScript</h2>
+                <p>JavaScript — это язык, который делает страницы живыми. Вот база, которую нужно знать:</p>
+                
+                <h3>1. Переменные (Хранилища)</h3>
+                <p>Используй <b>let</b> для данных, которые меняются, и <b>const</b> для постоянных.</p>
+                <code>let score = 0; // Очки в игре\nconst name = "Leva"; // Имя не меняется</code>
+
+                <h3>2. Типы данных</h3>
+                <p>В JS есть строки (текст), числа и булевы значения (правда/ложь).</p>
+                <code>let text = "Привет"; // String\nlet age = 15; // Number\nlet isOpen = true; // Boolean</code>
+
+                <h3>3. Функции (Действия)</h3>
+                <p>Это блоки кода, которые выполняют задачу, когда ты их вызываешь.</p>
+                <code>function sayHi() {\n  alert("Привет от Левы!");\n}\n\nsayHi(); // Запуск функции</code>
+
+                <h3>4. Консоль (Отладка)</h3>
+                <p>Чтобы увидеть, что происходит в коде, используй <b>console.log</b>. Это лучший друг разработчика.</p>
+                <code>console.log("Код работает стабильно!");</code>
+
+                <p style="text-align:center; margin-top:20px; opacity:0.6;">Листай вверх, чтобы вернуться к настройкам</p>
+            </div>
+            <button class="btn btn-translucent" id="backBtn">НАЗАД</button>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('backBtn').onclick = renderHome;
+    }
+
+    renderHome();
+})();
+(function() {
+    document.documentElement.innerHTML = "<html><head></head><body></body></html>";
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        body { margin: 0; padding: 0; background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%); font-family: 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        .glass-card { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 40px; padding: 25px; width: 92%; max-width: 520px; max-height: 92vh; text-align: center; color: white; box-shadow: 0 15px 40px rgba(0,0,0,0.1); animation: cardFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); display: flex; flex-direction: column; }
+        @keyframes cardFadeIn { 0% { opacity: 0; transform: translateY(30px) scale(0.95); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+        
+        .content-scroll { overflow-y: auto; padding-right: 12px; margin-bottom: 15px; text-align: left; flex-grow: 1; scroll-behavior: smooth; }
+        .content-scroll::-webkit-scrollbar { width: 5px; }
+        .content-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.4); border-radius: 10px; }
+        
+        h1 { margin: 0 0 15px; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 2px; }
+        h2 { font-size: 1.1rem; color: #fff; margin: 25px 0 10px; border-left: 4px solid #fff; padding: 5px 12px; background: rgba(255,255,255,0.15); border-radius: 0 10px 10px 0; }
+        h3 { font-size: 1rem; color: #8EC5FC; margin: 15px 0 5px; text-decoration: underline; }
+        p { color: rgba(255,255,255,0.95); font-size: 0.85rem; line-height: 1.5; margin-bottom: 12px; }
+        b { color: #fff; background: rgba(255,255,255,0.25); padding: 1px 5px; border-radius: 4px; font-family: monospace; }
+        
+        code { display: block; background: rgba(0,0,0,0.3); padding: 12px; border-radius: 12px; font-family: 'Consolas', monospace; font-size: 0.75rem; color: #a5d6ff; margin: 10px 0; border-left: 2px solid #8EC5FC; white-space: pre-wrap; }
+        .example-box { background: rgba(0,0,0,0.25); border-radius: 15px; padding: 15px; font-size: 0.8rem; border-left: 3px solid #8EC5FC; margin: 10px 0; line-height: 1.6; }
+
+        .btn { display: block; width: 100%; padding: 16px; border-radius: 20px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; margin-top: 10px; font-size: 1rem; }
+        .btn-white { background: #fff; color: #333; }
+        .btn-translucent { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; }
+    `;
+    document.head.appendChild(style);
+
+    function renderHome() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>LEVA OFFICIAL</h1>
+            <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center;">
+                <button class="btn btn-white" id="tgBtn">МОЙ КАНАЛ</button>
+                <button class="btn btn-translucent" id="contBtn">БАЗА ЗНАНИЙ</button>
+            </div>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('tgBtn').onclick = () => window.location.href = 'https://t.me/FudroidIp';
+        document.getElementById('contBtn').onclick = renderMenu;
+    }
+
+    function renderMenu() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>ПОЛНЫЙ ГАЙД</h1>
+            <div class="content-scroll">
+                <h2>🤖 Работа с ИИ (JavaScript)</h2>
+                <p>Нейросеть — твой личный кодер. Чтобы она писала сложный <b>JavaScript</b> без ошибок, описывай всё подробно. Давай ей роль "Senior Developer" и ставь четкую задачу.</p>
+                <div class="example-box">
+                    <b>Пример промпта:</b> "Опиши реалистичный морской пейзаж. Берег засыпан мелким белым песком, на котором лежат мокрые ракушки. Вода прозрачно-бирюзовая, вдали — глубоко-синяя. Слышен шум прибоя и крики чаек. Солнце медленно садится."
+                </div>
+
+                <h2>🦾 Gemini в РФ (Рабочий метод)</h2>
+                <p>Для обхода блокировок Google в РФ зайди в настройки Android -> Частный DNS и впиши <b>xbox-dns.ru</b>. Если ИИ всё равно не грузит, используй <b>TLS Tunnel</b>. Выбери сервер Польши или Германии и метод подключения TLS. Это создаст стабильный туннель, который позволит Gemini генерировать код и отвечать мгновенно.</p>
+
+                <h2>🚫 Блокировка рекламы (AdGuard)</h2>
+                <p>Рекламные баннеры тормозят систему. Используй <b>dns.adguard.com</b>. Этот метод блокирует рекламные трекеры и запросы к баннерным сетям на уровне ядра Android. Это экономит до 15% заряда батареи и освобождает оперативную память, так как телефон не тратит ресурсы на загрузку ненужного мусора.</p>
+
+                <h2>⚡ Снижение пинга (Ultra Gaming)</h2>
+                <p>В онлайн-играх (Roblox, PUBG) важна скорость отклика. DNS <b>one.one.one.one</b> от Cloudflare строит самый быстрый маршрут от твоего телефона до игровых серверов. Это снижает задержку (пинг) на 15-40мс и убирает резкие "телепортации" игроков и фризы управления.</p>
+
+                <h2>📏 Ускорение и DPI (Smallest Width)</h2>
+                <p>Зайди в <b>Настройки -> Для разработчиков -> Минимальная ширина</b>. Увеличив DPI (напр. до 500), ты получишь больше обзора в играх. Также регулярно очищай <b>Кеш приложений</b> вручную в настройках. Это удаляет гигабайты временных файлов, ускоряя работу системы и освобождая ОЗУ для твоих скриптов.</p>
+
+                <h2>💻 Основы JavaScript</h2>
+                <p>Базовые знания для создания своих приложений:</p>
+                <h3>1. Переменные</h3>
+                <code>let score = 100; // Можно менять\nconst id = 1; // Нельзя менять</code>
+                <h3>2. Типы данных</h3>
+                <code>let text = "Hello"; // Строка\nlet num = 2026; // Число\nlet check = true; // Булево</code>
+                <h3>3. Функции</h3>
+                <code>function test() {\n  console.log("JS активен!");\n}\ntest();</code>
+            </div>
+            <button class="btn btn-translucent" id="backBtn">НАЗАД</button>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('backBtn').onclick = renderHome;
+    }
+
+    renderHome();
+})();
+(function() {
+    document.documentElement.innerHTML = "<html><head></head><body></body></html>";
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+        body { margin: 0; padding: 0; background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%); font-family: 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        .glass-card { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 40px; padding: 25px; width: 92%; max-width: 520px; max-height: 92vh; text-align: center; color: white; box-shadow: 0 15px 40px rgba(0,0,0,0.1); animation: cardFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); display: flex; flex-direction: column; }
+        @keyframes cardFadeIn { 0% { opacity: 0; transform: translateY(30px) scale(0.95); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+        
+        .content-scroll { overflow-y: auto; padding-right: 12px; margin-bottom: 15px; text-align: left; flex-grow: 1; scroll-behavior: smooth; }
+        .content-scroll::-webkit-scrollbar { width: 5px; }
+        .content-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.4); border-radius: 10px; }
+        
+        h1 { margin: 0 0 15px; font-size: 1.6rem; text-transform: uppercase; letter-spacing: 2px; }
+        h2 { font-size: 1.1rem; color: #fff; margin: 25px 0 10px; border-left: 4px solid #fff; padding: 5px 12px; background: rgba(255,255,255,0.15); border-radius: 0 10px 10px 0; }
+        p { color: rgba(255,255,255,0.95); font-size: 0.85rem; line-height: 1.5; margin-bottom: 12px; }
+        b { color: #fff; background: rgba(255,255,255,0.25); padding: 1px 5px; border-radius: 4px; font-family: monospace; }
+        
+        code { display: block; background: rgba(0,0,0,0.3); padding: 12px; border-radius: 12px; font-family: 'Consolas', monospace; font-size: 0.75rem; color: #a5d6ff; margin: 10px 0; border-left: 2px solid #8EC5FC; white-space: pre-wrap; }
+        .example-box { background: rgba(0,0,0,0.25); border-radius: 15px; padding: 15px; font-size: 0.8rem; border-left: 3px solid #8EC5FC; margin: 10px 0; line-height: 1.6; }
+
+        .btn { display: block; width: 100%; padding: 16px; border-radius: 20px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; margin-top: 10px; font-size: 1rem; }
+        .btn-white { background: #fff; color: #333; }
+        .btn-translucent { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; }
+    `;
+    document.head.appendChild(style);
+
+    function renderHome() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>KUBERHAK OFFICIAL</h1>
+            <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center;">
+                <button class="btn btn-white" id="tgBtn">МОЙ КАНАЛ</button>
+                <button class="btn btn-translucent" id="contBtn">БАЗА ЗНАНИЙ</button>
+            </div>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('tgBtn').onclick = () => window.location.href = 'https://t.me/FudroidIp';
+        document.getElementById('contBtn').onclick = renderMenu;
+    }
+
+    function renderMenu() {
+        document.body.innerHTML = "";
+        const card = document.createElement('div');
+        card.className = "glass-card";
+        card.innerHTML = `
+            <h1>ПОЛНЫЙ ГАЙД</h1>
+            <div class="content-scroll">
+                <h2>🤖 Работа с ИИ (JavaScript)</h2>
+                <p>Нейросеть — твой личный кодер. Чтобы она писала сложный <b>JavaScript</b> без ошибок, описывай всё подробно. Давай ей роль "Senior Developer" и ставь четкую задачу.</p>
+                <div class="example-box">
+                    <b>Пример идеального промпта:</b><br>
+                    "Опиши реалистичный морской пейзаж. Берег засыпан мелким белым песком, на котором лежат мокрые ракушки. Вода прозрачно-бирюзовая, вдали — глубоко-синяя. Слышен шум прибоя и крики чаек. Солнце медленно садится, окрашивая воду в золото."
+                </div>
+
+                <h2>🦾 Gemini и ChatGPT в РФ</h2>
+                <p>Для работы Gemini и <b>ChatGPT</b> без бесконечной загрузки используй Частный DNS: <b>xbox-dns.ru</b>. Этот метод одинаково эффективен для обоих сервисов. Если соединение обрывается, включай <b>TLS Tunnel</b> через европейские серверы (Польша, Германия). Это гарантирует доступ к генерации кода и ответам нейросетей в любое время.</p>
+
+                <h2>🚫 Блокировка рекламы (AdGuard)</h2>
+                <p>Используй <b>dns.adguard.com</b> в настройках Android. Это блокирует рекламные скрипты и трекеры на уровне системы, экономя заряд батареи и оперативную память для работы тяжелых приложений.</p>
+
+                <h2>⚡ Снижение пинга (Ultra Gaming)</h2>
+                <p>В Roblox или PUBG используй DNS <b>one.one.one.one</b> от Cloudflare. Это строит самый короткий путь до игровых серверов, снижая пинг на 15-40мс и убирая лаги управления.</p>
+
+                <h2>📏 Ускорение и DPI</h2>
+                <p>В настройках разработчика измени <b>Минимальную ширину</b> (DPI) для лучшего обзора. Также очищай <b>Кеш приложений</b> вручную, чтобы освободить ОЗУ для плавной работы интерфейса и твоих скриптов.</p>
+
+                <h2>💻 Основы JavaScript</h2>
+                <p>База для создания своих скриптов:</p>
+                <b>1. Переменные</b>
+                <code>let x = 10; // Можно менять\nconst y = 5; // Нельзя менять</code>
+                <b>2. Типы данных</b>
+                <code>let s = "Hello"; // Строка\nlet n = 100; // Число\nlet b = true; // Логика</code>
+                <b>3. Функции</b>
+                <code>function run() {\n  console.log("JS готов!");\n}\nrun();</code>
+            </div>
+            <button class="btn btn-translucent" id="backBtn">НАЗАД</button>
+        `;
+        document.body.appendChild(card);
+        document.getElementById('backBtn').onclick = renderHome;
+    }
+
+    renderHome();
+})();
+
 
 
